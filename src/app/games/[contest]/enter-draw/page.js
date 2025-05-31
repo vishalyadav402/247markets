@@ -6,8 +6,11 @@ import { useParams } from 'next/navigation';
 import React from 'react'
 import { RxSlash } from "react-icons/rx";
 
+
+const params = useParams();
+
 const page = () => {
-  const params = useParams();
+
   return (
     <>
       <ClientLayout>
