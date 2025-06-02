@@ -118,14 +118,14 @@ const NumberSelectionGame = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mt-2">
             {tickets.map((ticket, idx) => {
               const isActive = ticket.numbers.length === REQUIRED_NUMBERS;
 
               return (
                 <div
                   key={ticket.id}
-                  className={`md:min-w-0 min-w-[280px] rounded-xl p-4 border-2 transition shadow-md flex flex-col items-center relative ${
+                  className={`w-[280px] my-2 rounded-xl p-4 border-2 transition shadow-md flex flex-col items-center relative ${
                     isActive ? "border-orange-500" : "border-gray-200 text-gray-400"
                   }`}
                 >
@@ -219,14 +219,12 @@ const NumberSelectionGame = () => {
             })}
 
             {/* Add Ticket Button */}
-            <div className="md:min-w-0 min-w-[280px]">
               <button
                 onClick={addTicket}
-                className="border-2 h-full border-dashed border-orange-300 rounded-xl flex items-center justify-center p-6 text-orange-300 font-semibold hover:bg-orange-50 hover:border-orange-400 hover:text-orange-400 transition"
+                className="border-2 w-[280px] h-full border-dashed border-orange-300 rounded-xl flex items-center justify-center p-6 text-orange-300 font-semibold hover:bg-orange-50 hover:border-orange-400 hover:text-orange-400 transition"
               >
                 + ADD ANOTHER TICKET
               </button>
-            </div>
           </div>
         </div>
 

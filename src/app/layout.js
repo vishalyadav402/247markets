@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <title>Play & Win on 247Marketing - Win Millions for a Better Future</title>
-    <meta charset="UTF-8" />
+    <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {/* Favicon & Icons */}

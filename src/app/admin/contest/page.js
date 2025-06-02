@@ -91,7 +91,7 @@ const ManageContestPage = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 bg-gray-800 backdrop-opacity-5 flex justify-center items-center">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+          <div className="bg-white text-black rounded-lg shadow-lg w-full max-w-md p-6">
             <h2 className="text-xl font-semibold mb-4">Create New Contest</h2>
 
             <div className="mb-4">
