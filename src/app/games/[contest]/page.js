@@ -2,14 +2,15 @@
 
 import ClientLayout from '@/app/ClientLayout';
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Loading from '@/app/component/Loading';
 
 const Page = () => {
   const router = useRouter();
+ const pathname = usePathname();
 
   useEffect(() => {
-      router.push('/games/pick2/enter-draw'); // redirects after loading
+      router.push(`${pathname}/enter-draw`); // redirects after loading
   }, []);
 
   return (

@@ -50,7 +50,7 @@ const Page = () => {
             Forgot Password
           </a>
           <span className="px-1 text-gray-600">|</span>
-          <a href="#" className="hover:underline">
+          <a href="/forgotUsername" className="hover:underline">
             Forgot Username
           </a>
         </div>

@@ -27,15 +27,15 @@ const Footer = () => {
         <span>|</span>
         <a href="/about-us" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>About Us</a>
         <span>|</span>
-        <a href="#" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>News</a>
-        <span>|</span>
         <a href="/play-responsibly" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Play Responsibly</a>
         <span>|</span>
-        <a href="#" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Legal</a>
+        <a href="/legal-page" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Legal</a>
         <span>|</span>
         <a href="/contact-us" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Contact Us</a>
         <span>|</span>
-        <a href="#" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Promotions</a>
+        <a href="/giving-back" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Giving Back</a>
+        <span>|</span>
+        <a href="/promotions" className='hover:border-b-2 border-red-400 leading-4 transition-all duration-300'>Promotions</a>
       </div>
 
       {/* Payment Icons */}

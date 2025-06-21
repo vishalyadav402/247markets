@@ -10,13 +10,11 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
+import Image from 'next/image';
 
 export default function App() {
     const images = [
-        'https://placehold.co/600x140?text=Slide+1',
-        'https://placehold.co/600x140?text=Slide+3',
-        'https://placehold.co/600x140?text=Slide+4',
-        'https://placehold.co/600x140?text=Slide+2',
+        '/banner/banner.png',
       ];
   return (
     <>
@@ -36,11 +34,16 @@ export default function App() {
       >
          {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <img
+            <div className='w-[1486px] h-[446px]'>
+            <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              className="w-full h-auto rounded-md shadow"
+              className="rounded-md shadow object-center"
+              height={446}
+              width={1486}
+              style={{height:'100%',width:'100%'}}
             />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

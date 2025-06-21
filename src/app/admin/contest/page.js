@@ -17,6 +17,33 @@ const ManageContestPage = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [contestFee, setContestFee] = useState('');
+ 
+  
+    const [contestBgColor, setContestBgColor] = useState('#ffffff');
+  const [inputValue, setInputValue] = useState('#ffffff');
+  const [error, setError] = useState('');
+
+  const isValidHex = (value) => /^#([0-9A-F]{3}){1,2}$/i.test(value);
+
+  const handleTextChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    if (isValidHex(value)) {
+      setContestBgColor(value); // Sync to color input
+      setError('');
+    } else {
+      setError('Invalid hex color code');
+    }
+  };
+
+  const handleColorChange = (e) => {
+    const value = e.target.value;
+    setContestBgColor(value);
+    setInputValue(value); // Sync to text input
+    setError('');
+  };
+
 
   const handleCreateContest = () => {
     // ✅ Log all fields
@@ -27,6 +54,7 @@ const ManageContestPage = () => {
       startDate,
       endDate,
       contestFee,
+      contestBgColor,
     });
 
     // Reset modal state
@@ -38,6 +66,8 @@ const ManageContestPage = () => {
     setEndDate('');
     setContestFee('');
   };
+
+ 
 
   return (
     <AdminLayout>
@@ -90,9 +120,14 @@ const ManageContestPage = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-gray-800 backdrop-opacity-5 flex justify-center items-center">
-          <div className="bg-white text-black rounded-lg shadow-lg w-full max-w-md p-6">
+        <div className="fixed inset-0 z-50 shadow bg-gray-500 flex justify-center items-center">
+          <div className="bg-white text-black rounded-lg shadow-lg w-full max-w-xl p-6">
+            <div className='flex justify-between'>
             <h2 className="text-xl font-semibold mb-4">Create New Contest</h2>
+          <button onClick={() => setShowModal(false)} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+            X
+          </button>
+          </div>
 
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Contest Name</label>
@@ -129,29 +164,32 @@ const ManageContestPage = () => {
                 <option value="5">5 Numbers</option>
                 <option value="4">4 Numbers</option>
                 <option value="3">3 Numbers</option>
+                <option value="2">2 Numbers</option>
               </select>
             </div>
 
-            {/* ✅ New Fields */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Start Date-Time</label>
-              <input
-                type="datetime-local"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2"
-              />
+            <div className="mb-4 flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <label className="block text-sm font-medium mb-1">Start Date-Time</label>
+                <input
+                  type="datetime-local"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+
+              <div className="flex-1">
+                <label className="block text-sm font-medium mb-1">End Date-Time</label>
+                <input
+                  type="datetime-local"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
             </div>
 
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">End Date-Time</label>
-              <input
-                type="datetime-local"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="w-full border border-gray-300 rounded px-3 py-2"
-              />
-            </div>
 
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Contest Fee (₹)</label>
@@ -163,6 +201,29 @@ const ManageContestPage = () => {
                 placeholder="Enter fee"
               />
             </div>
+
+            <div className="mb-4">
+      <label className="block text-sm font-medium mb-1">Contest BG Color</label>
+      <div className="flex gap-2 items-center">
+        <input
+          type="color"
+          value={contestBgColor}
+          onChange={handleColorChange}
+          className="w-12 h-10 p-1 border border-gray-300 rounded"
+        />
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleTextChange}
+          className={`flex-1 border ${
+            error ? 'border-red-500' : 'border-gray-300'
+          } rounded px-3 py-2`}
+          placeholder="#FFFFFF"
+        />
+      </div>
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    </div>
+
 
             <div className="flex justify-end space-x-2">
               <button

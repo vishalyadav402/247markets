@@ -5,8 +5,15 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 import { TfiShoppingCart } from "react-icons/tfi";
 import { useRouter } from "next/navigation";
+import GameSelectModal from "./GameSelectModal";
 
 const Header = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+const handleGameSelect = (game) => {
+    console.log("Selected Game:", game);
+    // navigate or update state as needed
+  };
+  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -71,34 +78,29 @@ const Header = () => {
               </div>
             </div>
 
-            <nav className="text-md font-semibold">
+            <nav className="text-sm font-semibold">
               <ul className="flex flex-wrap justify-end gap-x-4 gap-y-2">
                 <li>
-                  <a href="#" className="hover:underline">
+                  <button onClick={() => setModalOpen(true)} className="hover:underline">
                     GAMES
-                  </a>
+                  </button>
                 </li>
                 <span className="text-white">|</span>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <button onClick={()=>router.push('/games/PICK2/draw-results')} className="hover:underline">
                     RESULTS
-                  </a>
+                  </button>
                 </li>
                 <span className="text-white">|</span>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a href="/giving-back" className="hover:underline">
                     GIVING BACK
                   </a>
                 </li>
+                
                 <span className="text-white">|</span>
                 <li>
-                  <a href="#" className="hover:underline">
-                    LOYALTY
-                  </a>
-                </li>
-                <span className="text-white">|</span>
-                <li>
-                  <a href="#" className="hover:underline">
+                  <a href="/promotions" className="hover:underline">
                     PROMOTIONS
                   </a>
                 </li>
@@ -138,27 +140,22 @@ const Header = () => {
           <nav className="text-sm font-semibold">
             <ul className="flex flex-col space-y-4">
               <li>
-                <a href="#" className="hover:underline">
+                <button onClick={() => setModalOpen(true)} className="hover:underline">
                   GAMES
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <button onClick={()=>router.push('/games/PICK2/draw-results')} className="hover:underline">
                   RESULTS
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/giving-back" className="hover:underline">
                   GIVING BACK
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
-                  LOYALTY
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
+                <a href="/promotions" className="hover:underline">
                   PROMOTIONS
                 </a>
               </li>
@@ -166,6 +163,19 @@ const Header = () => {
           </nav>
         </div>
       </div>
+
+
+
+
+
+
+
+
+       <GameSelectModal
+              open={modalOpen}
+              onClose={() => setModalOpen(false)}
+              onSelect={handleGameSelect}
+            />
     </>
   );
 };

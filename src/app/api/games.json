@@ -1,0 +1,57 @@
+[
+  {
+    "id": "pick2",
+    "name": "PICK2",
+    "entryFee": "10",
+    "frequency": "Hourly",
+    "prize": "500,000",
+    "multiplier": "50x",
+    "bg": "bg-orange-500",
+    "nextDraw": { "minutes": "31", "seconds": "23" },
+    "tagline":"win upto prizes 50000"
+  },
+  {
+    "id": "mega7",
+    "name": "MEGA7",
+    "entryFee": "50",
+    "frequency": "Every Sunday",
+    "prize": "100,000,000",
+    "description": "8 GUARANTEED WINNERS",
+    "bg": "bg-red-600",
+    "nextDraw": { "days": "03", "hours": "14", "minutes": "11", "seconds": "23" },
+    "tagline":null
+  },
+  {
+    "id": "fast5",
+    "name": "FAST5",
+    "entryFee": "25",
+    "frequency": "Every Saturday",
+    "prize": "25,000",
+    "description": "6 GUARANTEED WINNERS",
+    "bg": "bg-blue-600",
+    "nextDraw": { "days": "02", "hours": "14", "minutes": "11", "seconds": "23" },
+    "tagline":null
+  },
+  {
+    "id": "easy6",
+    "name": "EASY6",
+    "entryFee": "15",
+    "frequency": "Every Friday",
+    "prize": "15,000,000",
+    "description": "7 GUARANTEED WINNERS",
+    "bg": "bg-green-600",
+    "nextDraw": { "days": "01", "hours": "14", "minutes": "11", "seconds": "23" },
+    "tagline":null
+  },
+  {
+    "id": "pick1",
+    "name": "PICK1",
+    "entryFee": "5",
+    "frequency": "Hourly",
+    "prize": "200,000",
+    "multiplier": "20x",
+    "bg": "bg-purple-600",
+    "nextDraw": { "minutes": "31", "seconds": "23" },
+    "tagline":null
+  }
+]
